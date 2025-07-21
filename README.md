@@ -13,6 +13,7 @@ Install Dependencies:
 ```
 sudo apt install -y libavdevice-dev libepoxy-dev
 sudo apt install -y ros-jazzy-camera-info-manager
+sudo apt install -y ros-jazzy-image-transport-plugins
 sudo apt install -y python3-colcon-meson
 sudo apt install -y python3-rosdep
 sudo apt install -y python3-colcon-common-extensions
@@ -60,8 +61,8 @@ dtoverlay=imx708,cam1
 
 Then when running the ros node specify the camera index:
 ```
-ros2 run camera_ros camera_node --ros-args -p camera:=0 --remap /camera/image_raw:=/camera_0/image_raw 
-ros2 run camera_ros camera_node --ros-args -p camera:=1 --remap /camera/image_raw:=/camera_1/image_raw
+ros2 run camera_ros camera_node __name:=camera_0 --ros-args -p camera:=0
+ros2 run camera_ros camera_node __name:=camera_1 --ros-args -p camera:=1
 ```
  The above instructions were derived from: https://github.com/TanmayChhatbar/ros2_car/blob/feature/camera_setup/README_ELI5.md
 
